@@ -27,3 +27,5 @@ end
 # infoというメソッドが使えるようになる
 Player.new.info
 Monster.new.info
+
+test
