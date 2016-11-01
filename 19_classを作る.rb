@@ -10,7 +10,7 @@ end
 
 tom = User.new
 tom.sayHi
-# この時点でtomはただのオブジェクトで、値ではないはず
+# FAQこの時点でtomはただのオブジェクトで、値ではないはず?
 # ->tomを他の名前にして確認してみる
 
 # 名前を渡してインスタンス内で変数を使って値を保持する
@@ -20,7 +20,7 @@ class User
   def initialize(name)
     # @ インスタンス変数 インスタンスの中であればどこでも使用可能
     # - メソッド内で定義した変数はその外からアクセスできない
-    @name = name # newの引数に渡されたtom,bobを@nameに格納する
+    @name = name # new()で渡された値を@nameに格納する
   end
   def sayHi
     puts "hi! i am #{@name}"

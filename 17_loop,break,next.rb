@@ -14,6 +14,7 @@ end
 ## next 再開
 
 10.times do |i|
+  # 7の時に処理に入る
   if i == 7 then
     # break # 7まできたら処理を抜ける
     next # 処理を飛ばす
