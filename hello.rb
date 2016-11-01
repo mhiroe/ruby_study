@@ -1,52 +1,4 @@
 #
-# 16 for each
-#
-
-# for 配列、ハッシュの要素の数だけ繰り返す
-
-for i in 15..20 do # doは省略可能 15..20(範囲を表すオブジェクト)
-  p i
-end
-
-# 配列
-for color in ["red", "blue"] do
-  p color
-end
-
-# ハッシュ
-for name, score in {taguchi:200, fkoji:400} do
-  puts "#{name}: #{score}"
-end
-
-## each
-
-# forは内部的にはeachを使っている
-# 集合的なオブジェクトのメソッドとして動作
-
-(15..20).each do |i|
-  p i
-end
-
-# 配列
-["red", "blue"].each do |color|
-  p color
-end
-
-# ハッシュ
-{taguchi:200, fkoji:400}.each do |name, score|
-  puts "#{name}: #{score}"
-end
-
-# 一行で表現したい場合はdo endを{}で省略表記
-(15..20).each {|i| p i}
-
-# 配列
-["red", "blue"].each {|color| p color }
-
-# ハッシュ
-{taguchi:200, fkoji:400}.each {|name, score| puts "#{name}: #{score}" }
-
-#
 # 17.loop,beak,nextを使おう
 #
 
@@ -81,16 +33,17 @@ end
 
 tom = User.new
 tom.sayHi
+# この時点でtomはただのオブジェクトで、値ではないはず
+# ->tomを他の名前にして確認してみる
 
-# 変数を使って値を保持する
-# 名前を渡してインスタンス内で保持するようにする
+# 名前を渡してインスタンス内で変数を使って値を保持する
 class User
 
-  # initialize=newが呼ばれた時に呼ばれるメソッド
+  # initialize newが呼ばれた時に呼ばれるメソッド
   def initialize(name)
     # @ インスタンス変数 インスタンスの中であればどこでも使用可能
-    # e.g:メソッド内で定義した変数はその外からアクセスできない
-    @name = name
+    # - メソッド内で定義した変数はその外からアクセスできない
+    @name = name # newの引数に渡されたtom,bobを@nameに格納する
   end
   def sayHi
     puts "hi! i am #{@name}"
@@ -109,7 +62,9 @@ bob.sayHi
 
 class User
   #アクセサ : クラスの外からでもアクセス(読み書き)出来るようにする
-  attr_accessor :name # インスタンス変数の名前をシンボルで渡す
+  
+ # インスタンス変数の名前をシンボルで渡す
+attr_accessor :name
   # 自動的に下記メソッドが作られる (２つ合わせてアクセサと呼ぶ)
   # setter name=(value) 値を設定するメソッドを設定
   # getter name 値を読み出すメソッドを設定
